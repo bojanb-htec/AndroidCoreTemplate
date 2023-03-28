@@ -7,6 +7,10 @@ build:
   # style: 1
   # comments: 1
 
+naming:
+  FunctionNaming:
+    ignoreAnnotated: [ 'Composable' ]
+
 formatting:
   active: true
   android: false
@@ -25,13 +29,15 @@ complexity:
     ignoreDeprecated: false
     ignorePrivate: false
     ignoreOverridden: false
+  LongParameterList:
+    ignoreDefaultParameters: true
 
 style:
   UnnecessaryAbstractClass:
-    excludes: ["**/CoreRepository.kt", "**/DataModule.kt", "**/CrashlyticsModule.kt"]
+    excludes: [ "**/DataModule.kt", "**/CrashlyticsModule.kt" ]
   WildcardImport:
-    excludes: ["**/ExampleDao.kt", "**/ExampleViewModelTest.kt"]
-
-exceptions:
-  TooGenericExceptionCaught:
-    excludes: ["**/CoreRepository.kt"]
+    excludes: [ "**/ExampleDao.kt", "**/ExampleViewModelTest.kt" ]
+  MagicNumber:
+    excludes: [ "**/Color.kt" ]
+  UnusedPrivateMember:
+    ignoreAnnotated: [ 'Preview' ]

@@ -1,10 +1,19 @@
 plugins {
 	// See https://jmfayard.github.io/refreshVersions
-	id("de.fayard.refreshVersions") version "0.40.0"
+	id("de.fayard.refreshVersions") version "0.51.0"
 }
 
 refreshVersions {
 	enableBuildSrcLibs()
+	rejectVersionIf {
+		candidate.stabilityLevel.isLessStableThan(current.stabilityLevel)
+	}
 }
 
-include(":domain", ":data", ":presentation", ":app")
+include(
+	":app",
+	":data",
+	":domain",
+	":presentation",
+	":presentation-databinding"
+)

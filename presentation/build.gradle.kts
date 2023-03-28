@@ -1,3 +1,5 @@
+import de.fayard.refreshVersions.core.versionFor
+
 plugins {
 	id(Plugins.androidLibrary)
 	kotlin(Plugins.android)
@@ -5,23 +7,23 @@ plugins {
 	id(Plugins.junit5)
 	id(Plugins.hilt)
 	id(Plugins.kotlinParcelize)
-	id(Plugins.androidxNavigationSafeargs)
 }
 
+apply(from = Config.___APP_NAME___.detekt)
+
 android {
-	namespace = "___PACKAGE_NAME___.presentation"
-	compileSdk = Config.SharedPref.compileSdkVersion
+	compileSdk = Config.___APP_NAME___.compileSdkVersion
 
 	defaultConfig {
-		minSdk = Config.SharedPref.minSdkVersion
-		targetSdk = Config.SharedPref.targetSdkVersion
-		testInstrumentationRunner = Config.SharedPref.instrumentationRunner
+		minSdk = Config.___APP_NAME___.minSdkVersion
+		targetSdk = Config.___APP_NAME___.targetSdkVersion
+		testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
 	}
 
 	buildTypes {
-		release {
-			isMinifyEnabled = false
+		getByName(Config.___APP_NAME___.release) {
+			isMinifyEnabled = Config.___APP_NAME___.minifyEnabled
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),
 				"proguard-rules.pro"
@@ -29,8 +31,8 @@ android {
 		}
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_11
-		targetCompatibility = JavaVersion.VERSION_11
+		sourceCompatibility = Config.___APP_NAME___.javaVersion
+		targetCompatibility = Config.___APP_NAME___.javaVersion
 	}
 
 	kotlinOptions {
@@ -38,7 +40,7 @@ android {
 	}
 
 	lint {
-		isAbortOnError = false
+		abortOnError = false
 	}
 
 	testOptions {
@@ -49,38 +51,42 @@ android {
 	}
 
 	buildFeatures {
-		dataBinding = true
-		viewBinding = true
+		compose = true
+	}
+
+	composeOptions {
+		kotlinCompilerExtensionVersion = versionFor(Libs.androidx_compose_compiler_compiler)
 	}
 }
 
 dependencies {
+	api(platform(Libs.core_bom))
+	api(Libs.presentation)
+	implementation(project(Config.Module.domain))
 
-	api("com.htec.bojanb.core:presentation:1.0.0")
-	implementation(project(Config.Module.___APP_NAME_CAMEL___.domain))
+	// Compose
+	implementation(Libs.material3)
+	implementation(Libs.androidx_compose_runtime_runtime)
+	implementation(Libs.lifecycle_viewmodel_compose)
+	implementation(Libs.hilt_navigation_compose)
+	implementation(Libs.navigation_compose)
+	implementation(Libs.activity_compose)
+	implementation(Libs.ui_tooling_preview)
+	implementation(Libs.ui_tooling)
+	implementation(Libs.accompanist_swiperefresh)
 
 	// Hilt
 	implementation(Libs.hilt_android)
 	kapt(Libs.hilt_android_compiler)
 	kapt(Libs.hilt_compiler)
 
-
-
-	implementation(AndroidX.recyclerView)
-	implementation(AndroidX.navigation.fragmentKtx)
-	implementation(AndroidX.navigation.uiKtx)
-	implementation(AndroidX.multidex)
-	implementation(Google.dagger.hilt.android)
-
-
-	implementation(Libs.constraintlayout)
-
 	implementation(Libs.play_services_ads)
 
 	implementation(Libs.work_runtime_ktx)
 
 	// Test
-	testImplementation("com.htec.bojanb.core:test:1.0.0")
+	testImplementation(platform(Libs.core_bom))
+	testImplementation(Libs.test)
 	testImplementation(Libs.robolectric)
 	testImplementation(Libs.core_testing)
 	testImplementation(Libs.core_ktx)

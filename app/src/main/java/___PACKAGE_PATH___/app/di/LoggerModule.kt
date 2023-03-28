@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface LoggerModule {
 
-	@Singleton
-	@Binds
-	fun provideLogger(logger: LoggerImpl): Logger
+    @Singleton
+    @Binds
+    fun provideLogger(logger: LoggerImpl): Logger
 }

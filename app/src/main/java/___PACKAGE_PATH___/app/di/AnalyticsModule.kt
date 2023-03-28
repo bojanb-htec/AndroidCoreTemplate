@@ -17,20 +17,20 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class AnalyticsModule {
 
-	@Singleton
-	@Provides
-	fun provideAnalytics(firebaseAnalytics: FirebaseAnalytics): Analytics {
-		return FirebaseAnalyticsImpl(firebaseAnalytics)
-	}
+    @Singleton
+    @Provides
+    fun provideAnalytics(firebaseAnalytics: FirebaseAnalytics): Analytics {
+        return FirebaseAnalyticsImpl(firebaseAnalytics)
+    }
 
-	@Provides
-	fun provideFirebaseAnalytics(@ApplicationContext context: Context): FirebaseAnalytics {
-		return FirebaseAnalytics.getInstance(context)
-	}
+    @Provides
+    fun provideFirebaseAnalytics(@ApplicationContext context: Context): FirebaseAnalytics {
+        return FirebaseAnalytics.getInstance(context)
+    }
 
-	@Singleton
-	@Provides
-	fun provideAnalyticsParam(): AnalyticsParam {
-		return AnalyticsParamImpl()
-	}
+    @Singleton
+    @Provides
+    fun provideAnalyticsParam(): AnalyticsParam {
+        return AnalyticsParamImpl()
+    }
 }

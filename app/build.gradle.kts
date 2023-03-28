@@ -1,76 +1,101 @@
 plugins {
-	id(Plugins.androidApplication)
-	kotlin(Plugins.android)
-	kotlin(Plugins.kapt)
-	id(Plugins.hilt)
-	id(Plugins.firebaseCrashlytics)
-	id(Plugins.firebaseAppDistribution)
+    id(Plugins.androidApplication)
+    kotlin(Plugins.android)
+    kotlin(Plugins.kapt)
+    id(Plugins.hilt)
+    id(Plugins.firebaseCrashlytics)
+    id(Plugins.firebaseAppDistribution)
 }
 
-apply(from = "./" + Config.Core.detekt)
-apply(from = "./" + Config.Core.moduleGraph)
+apply(from = Config.___APP_NAME___.detekt)
 
 android {
-	namespace = "___PACKAGE_NAME___.app"
-	compileSdk = Config.Core.compileSdkVersion
+    compileSdk = Config.___APP_NAME___.compileSdkVersion
 
-	defaultConfig {
-		applicationId = Config.Core.applicationId
-		minSdk = Config.SharedPref.minSdkVersion
-		targetSdk = Config.SharedPref.targetSdkVersion
-		versionCode = 1
-		versionName = "1.0"
+    defaultConfig {
+        applicationId = Config.___APP_NAME___.applicationId
+        minSdk = Config.___APP_NAME___.minSdkVersion
+        targetSdk = Config.___APP_NAME___.targetSdkVersion
+        versionCode = 1
+        versionName = "1.0"
 
-		testInstrumentationRunner = Config.SharedPref.instrumentationRunner
-		multiDexEnabled = Config.Core.multiDex
-	}
+        testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
+        multiDexEnabled = Config.___APP_NAME___.multiDex
+    }
 
-	buildTypes {
-		release {
-			isMinifyEnabled = false
-			proguardFiles(
-				getDefaultProguardFile("proguard-android-optimize.txt"),
-				"proguard-rules.pro"
-			)
-		}
-	}
-	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_11
-		targetCompatibility = JavaVersion.VERSION_11
-	}
+    signingConfigs {
 
-	kotlinOptions {
-		jvmTarget = JavaVersion.VERSION_11.toString()
-	}
+        Signing.loadReleaseProperties(project)
 
-	buildFeatures {
-		dataBinding = true
-		viewBinding = true
-	}
+        create(Config.___APP_NAME___.release) {
+            if (Signing.keystoreProperties.isNotEmpty()) {
+                keyAlias = Signing.keyAlias
+                keyPassword = Signing.keyPassword
+                storeFile = Signing.getStoreFile(project)
+                storePassword = Signing.storePassword
+            }
+        }
+    }
+
+    buildTypes {
+        getByName(Config.___APP_NAME___.release) {
+            isMinifyEnabled = Config.___APP_NAME___.minifyEnabled
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName(Config.___APP_NAME___.release)
+        }
+        getByName(Config.___APP_NAME___.debug) {
+            firebaseAppDistribution {
+                groups = Config.FirebaseDistribution.groups
+                releaseNotesFile = Config.FirebaseDistribution.releaseNotesFile
+                serviceCredentialsFile = Config.FirebaseDistribution.serviceCredentialsFile
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
-	implementation(project(Config.Module.___APP_NAME_CAMEL___.domain))
-	implementation(project(Config.Module.___APP_NAME_CAMEL___.data))
-	implementation(project(Config.Module.___APP_NAME_CAMEL___.presentation))
+    implementation(project(Config.Module.domain))
+    implementation(project(Config.Module.data))
+    /**
+     * #DataBindingSample
+     * Change with the following line to enable databinding example
+     * implementation(project(Config.Module.presentationDatabinding))
+     */
+    implementation(project(Config.Module.presentation))
 
-	// Hilt
-	implementation(Libs.hilt_android)
-	kapt(Libs.hilt_android_compiler)
-	kapt(Libs.hilt_compiler)
+    // Hilt
+    implementation(Libs.hilt_android)
+    kapt(Libs.hilt_android_compiler)
+    kapt(Libs.hilt_compiler)
 
-	implementation(Libs.play_services_ads)
+    implementation(Libs.play_services_ads)
 
-	// Firebase TODO change to BOM
-	implementation(Libs.firebase_core)
-	implementation(Libs.firebase_crashlytics)
-	implementation(Libs.firebase_messaging_ktx)
+    implementation(platform(Libs.firebase_bom))
+    implementation(Libs.firebase_crashlytics_ktx)
+    implementation(Libs.firebase_analytics_ktx)
+    implementation(Libs.firebase_messaging_ktx)
 
-	implementation(Libs.work_runtime_ktx)
+    implementation(Libs.work_runtime_ktx)
 }
 
 apply(plugin = Plugins.googleServices)
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }

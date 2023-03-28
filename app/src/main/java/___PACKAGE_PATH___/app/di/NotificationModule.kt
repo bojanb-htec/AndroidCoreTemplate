@@ -17,16 +17,16 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NotificationModule {
 
-	@Provides
-	fun provideFirebaseMessaging() = FirebaseMessaging.getInstance()
+    @Provides
+    fun provideFirebaseMessaging() = FirebaseMessaging.getInstance()
 
-	@Singleton
-	@Provides
-	fun provideNotificationTokenStore(firebaseMessaging: FirebaseMessaging): INotificationTokenStore =
-		NotificationTokenManager(firebaseMessaging)
+    @Singleton
+    @Provides
+    fun provideNotificationTokenStore(firebaseMessaging: FirebaseMessaging): INotificationTokenStore =
+        NotificationTokenManager(firebaseMessaging)
 
-	@Singleton
-	@Provides
-	fun provideNotificationController(@ApplicationContext context: Context):
-		NotificationController = NotificationControllerImpl(context)
+    @Singleton
+    @Provides
+    fun provideNotificationController(@ApplicationContext context: Context):
+        NotificationController = NotificationControllerImpl(context)
 }

@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.maven
-
 plugins {
 	id(Plugins.androidLibrary)
 	kotlin(Plugins.android)
@@ -8,21 +6,16 @@ plugins {
 	id(Plugins.hilt)
 }
 
-repositories {
-	maven {
-		url = uri("file:///Users/bojan/TMP/CoreMaven/LocalMvnRepo")
-	}
-}
+apply(from = Config.___APP_NAME___.detekt)
 
 android {
-	namespace = "___PACKAGE_NAME___.domain"
-	compileSdk = Config.Core.compileSdkVersion
+	compileSdk = Config.___APP_NAME___.compileSdkVersion
 
 	defaultConfig {
-		minSdk = Config.Core.minSdkVersion
-		targetSdk = Config.Core.targetSdkVersion
+		minSdk = Config.___APP_NAME___.minSdkVersion
+		targetSdk = Config.___APP_NAME___.targetSdkVersion
 
-		testInstrumentationRunner = Config.Core.instrumentationRunner
+		testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
 	}
 
@@ -36,7 +29,7 @@ android {
 	}
 
 	lint {
-		isAbortOnError = false
+		abortOnError = false
 	}
 
 	testOptions {
@@ -47,21 +40,20 @@ android {
 	}
 }
 
-//apply(plugin = "maven")
-
 dependencies {
-	api("com.htec.bojanb.core:domain:1.0.0")
+	api(platform(Libs.core_bom))
+	api(Libs.domain)
 
 	// Hilt
 	implementation(Libs.hilt_android)
 	kapt(Libs.hilt_android_compiler)
-	kapt(Libs.hilt_compiler)
 
 	// Coroutines/Flows
 	implementation(Libs.kotlinx_coroutines_core)
 	implementation(Libs.kotlinx_coroutines_android)
 
-	testImplementation("com.htec.bojanb.core:test:1.0.0")
+	testImplementation(platform(Libs.core_bom))
+	testImplementation(Libs.test)
 
 	testImplementation(Libs.robolectric)
 	testImplementation(Libs.core_testing)

@@ -10,6 +10,6 @@ import dagger.hilt.android.components.ActivityComponent
 @InstallIn(ActivityComponent::class)
 object ActivityBuilderModule {
 
-	//    @Provides
-	//    fun provideExampleActivity(activity: Activity): ExampleActivity = activity as ExampleActivity
+    // @Provides
+    // fun provideExampleActivity(activity: Activity): ExampleActivity = activity as ExampleActivity
 }

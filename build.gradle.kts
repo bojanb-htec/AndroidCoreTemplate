@@ -5,6 +5,7 @@ buildscript {
 	repositories {
 		google()
 		mavenCentral()
+		mavenLocal()
 	}
 	dependencies {
 		classpath(Libs.com_android_tools_build_gradle)
@@ -18,31 +19,24 @@ buildscript {
 		}
 		classpath(Libs.hilt_android_gradle_plugin)
 		classpath(Libs.navigation_safe_args_gradle_plugin)
-		classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
-
 	}
 }
 
 plugins {
 	id(Plugins.detekt).version(Libs.io_gitlab_arturbosch_detekt_gradle_plugin)
-	id(Plugins.dokka).version(Libs.org_jetbrains_dokka_gradle_plugin)
 }
 
 allprojects {
 	repositories {
 		google()
 		mavenCentral()
+		mavenLocal()
 		jitpack()
-		htec()
-		htecSnapshots()
-		maven {
-			url = uri("file:///Users/bojan/TMP/CoreMaven/LocalMvnRepo")
-		}
 	}
 }
 
 tasks.wrapper {
-	gradleVersion = "7.3.3"
+	gradleVersion = "7.5.1"
 	distributionType = Wrapper.DistributionType.ALL
 }
 
@@ -55,9 +49,3 @@ tasks.withType<KotlinCompile>().all {
 tasks.register("clean", Delete::class) {
 	delete(rootProject.buildDir)
 }
-
-/*tasks {
-    val clean by registering(Delete::class) {
-        delete(buildDir)
-    }
-}*/

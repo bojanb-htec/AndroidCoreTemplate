@@ -50,6 +50,7 @@ captures/
 # Uncomment the following lines if you do not want to check your keystore files in.
 #*.jks
 #*.keystore
+**/signing/*
 
 .DS_Store
 
@@ -59,6 +60,10 @@ captures/
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
+
+# db files
+db.db
+.DS_Store
 
 # Freeline
 freeline.py

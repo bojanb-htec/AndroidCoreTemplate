@@ -5,5 +5,5 @@ import ___PACKAGE_NAME___.domain.service.analytics.AnalyticsParam
 import javax.inject.Inject
 
 class AnalyticsParamImpl @Inject constructor() : AnalyticsParam {
-	override val itemId = FirebaseAnalytics.Param.ITEM_ID
+    override val itemId = FirebaseAnalytics.Param.ITEM_ID
 }

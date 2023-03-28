@@ -16,39 +16,42 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
-	companion object {
-		private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
-	}
+    companion object {
+        private const val BASE_URL = TODO("Set base url")
+    }
 
-	//    @Singleton
-	//    @Provides
-	//    internal fun provideExampleService(retrofit: Retrofit) = retrofit.create(ExampleApi::class.java)
+    // @Singleton
+    // @Provides
+    // internal fun provideExampleService(retrofit: Retrofit) = retrofit.create(ExampleApi::class.java)
 
-	@Singleton
-	@Provides
-	internal fun provideRetrofit(client: OkHttpClient) =
-		Retrofit.Builder()
-			.baseUrl(BASE_URL)
-			.client(client)
-			.addConverterFactory(MoshiConverterFactory.create())
-			.build()
+    @Singleton
+    @Provides
+    internal fun provideRetrofit(client: OkHttpClient) =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
 
-	@Singleton
-	@Provides
-	internal fun provideClient(loggingInterceptor: HttpLoggingInterceptor) =
-		OkHttpClient.Builder()
-			.addInterceptor(loggingInterceptor)
-			.build()
+    @Singleton
+    @Provides
+    internal fun provideClient(loggingInterceptor: HttpLoggingInterceptor) =
+        OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
 
-	@Singleton
-	@Provides
-	internal fun provideLoggingInterceptor() =
-		HttpLoggingInterceptor().setLevel(
-			if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-			else HttpLoggingInterceptor.Level.NONE
-		)
+    @Singleton
+    @Provides
+    internal fun provideLoggingInterceptor() =
+        HttpLoggingInterceptor().setLevel(
+            if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
+        )
 
-	@Singleton
-	@Provides
-	internal fun providesMoshi() = Moshi.Builder().build()
+    @Singleton
+    @Provides
+    internal fun providesMoshi() = Moshi.Builder().build()
 }

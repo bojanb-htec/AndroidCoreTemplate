@@ -6,15 +6,16 @@ plugins {
 	id(Plugins.hilt)
 }
 
+apply(from = Config.___APP_NAME___.detekt)
+
 android {
-	namespace = "___PACKAGE_NAME___.data"
-	compileSdk = Config.Core.compileSdkVersion
+	compileSdk = Config.___APP_NAME___.compileSdkVersion
 
 	defaultConfig {
-		minSdk = Config.Core.minSdkVersion
-		targetSdk = Config.Core.targetSdkVersion
+		minSdk = Config.___APP_NAME___.minSdkVersion
+		targetSdk = Config.___APP_NAME___.targetSdkVersion
 
-		testInstrumentationRunner = Config.SharedPref.instrumentationRunner
+		testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
 
 		javaCompileOptions {
@@ -26,8 +27,8 @@ android {
 	}
 
 	buildTypes {
-		release {
-			isMinifyEnabled = false
+		getByName(Config.___APP_NAME___.release) {
+			isMinifyEnabled = Config.___APP_NAME___.minifyEnabled
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),
 				"proguard-rules.pro"
@@ -44,7 +45,7 @@ android {
 	}
 
 	lint {
-		isAbortOnError = false
+		abortOnError = false
 	}
 
 	testOptions {
@@ -56,18 +57,14 @@ android {
 }
 
 dependencies {
-	implementation("com.htec.bojanb.core:data:1.0.0")
-	implementation(project(Config.Module.___APP_NAME_CAMEL___.domain))
+	implementation(platform(Libs.core_bom))
+	implementation(Libs.data)
 
-
-	implementation(Square.retrofit2.retrofit)
-	implementation(Square.retrofit2.converter.moshi)
-	implementation(Square.moshi.kotlinReflect)
+	implementation(project(Config.Module.domain))
 
 	// Hilt
 	implementation(Libs.hilt_android)
 	kapt(Libs.hilt_android_compiler)
-	kapt(Libs.hilt_compiler)
 
 	// Room
 	implementation(Libs.room_runtime)
@@ -77,9 +74,9 @@ dependencies {
 	// Squareup
 	implementation(Libs.logging_interceptor)
 
-	// Firebase TODO change to BOM
-	implementation(Libs.firebase_core)
-	implementation(Libs.firebase_crashlytics)
+	implementation(platform(Libs.firebase_bom))
+	implementation(Libs.firebase_crashlytics_ktx)
+	implementation(Libs.firebase_analytics_ktx)
 	implementation(Libs.firebase_messaging_ktx)
 
 	implementation(Libs.work_runtime_ktx)
@@ -87,7 +84,8 @@ dependencies {
 	kapt(Libs.moshi_kotlin_codegen)
 
 	// Test
-	testImplementation("com.htec.bojanb.core:test:1.0.0")
+	testImplementation(platform(Libs.core_bom))
+	testImplementation(Libs.test)
 	testImplementation(Libs.robolectric)
 	testImplementation(Libs.core_testing)
 	testImplementation(Libs.core_ktx)

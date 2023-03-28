@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface CrashlyticsModule {
 
-	@Singleton
-	@Binds
-	fun provideCrashlytics(firebaseCrashlytics: FirebaseCrashlyticsImpl): Crashlytic
+    @Singleton
+    @Binds
+    fun provideCrashlytics(firebaseCrashlytics: FirebaseCrashlyticsImpl): Crashlytic
 }

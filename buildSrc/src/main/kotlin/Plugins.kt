@@ -12,7 +12,6 @@ object Plugins {
 	const val firebaseAppDistribution = "com.google.firebase.appdistribution"
 	const val googleServices = "com.google.gms.google-services"
 	const val firebaseCrashlytics = "com.google.firebase.crashlytics"
-	const val dokka = "org.jetbrains.dokka"
 	const val hilt = "dagger.hilt.android.plugin"
 	const val androidxNavigationSafeargs = "androidx.navigation.safeargs.kotlin"
 	const val detekt = "io.gitlab.arturbosch.detekt"
