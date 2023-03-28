@@ -12,6 +12,12 @@
       <template name="DataElements.kt.child.1.kt" file-name="db/dao/${ENTITY}Dao" reformat="true" live-template-enabled="false" />
       <template name="DataElements.kt.child.2.kt" file-name="network/entities/${ENTITY}Raw" reformat="true" live-template-enabled="false" />
       <template name="DataElements.kt.child.3.kt" file-name="network/api/${ENTITY}Api" reformat="true" live-template-enabled="false" />
+      <template name="DestinationComposer.kt" file-name="${DESTINATION_NAME}DestinationComposer" reformat="true" live-template-enabled="false">
+        <template name="DestinationComposer.kt.child.0.kt" file-name="${DESTINATION_NAME}ViewModel" reformat="true" live-template-enabled="false" />
+        <template name="DestinationComposer.kt.child.1.kt" file-name="${DESTINATION_NAME}Screen" reformat="true" live-template-enabled="false" />
+      </template>
+      <template name="DestinationComposer.kt.child.0.kt" file-name="${DESTINATION_NAME}ViewModel" reformat="true" live-template-enabled="false" />
+      <template name="DestinationComposer.kt.child.1.kt" file-name="${DESTINATION_NAME}Screen" reformat="true" live-template-enabled="false" />
       <template name="DomainElements.kt" file-name="${ENTITY.toLowerCase()}/${ENTITY}" reformat="true" live-template-enabled="false">
         <template name="DomainElements.kt.child.0.kt" file-name="${ENTITY.toLowerCase()}/usecase/${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
         <template name="DomainElements.kt.child.1.kt" file-name="${ENTITY.toLowerCase()}/${ENTITY}Repository" reformat="true" live-template-enabled="false" />
@@ -23,8 +29,8 @@
       <template name="DomainParamUseCase.kt" file-name="${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
       <template name="DomainUseCase.kt" file-name="${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
       <template name="PresentationAdapter.kt" file-name="${ENTITY}Adapter" reformat="true" live-template-enabled="false">
-        <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
         <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
+        <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
       </template>
       <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
       <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
