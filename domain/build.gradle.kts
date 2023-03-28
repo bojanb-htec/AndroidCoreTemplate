@@ -6,16 +6,16 @@ plugins {
 	id(Plugins.hilt)
 }
 
-apply(from = Config.___APP_NAME___.detekt)
+apply(from = Config.___APP_NAME_CAMEL___.detekt)
 
 android {
-	compileSdk = Config.___APP_NAME___.compileSdkVersion
+	compileSdk = Config.___APP_NAME_CAMEL___.compileSdkVersion
 
 	defaultConfig {
-		minSdk = Config.___APP_NAME___.minSdkVersion
-		targetSdk = Config.___APP_NAME___.targetSdkVersion
+		minSdk = Config.___APP_NAME_CAMEL___.minSdkVersion
+		targetSdk = Config.___APP_NAME_CAMEL___.targetSdkVersion
 
-		testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
+		testInstrumentationRunner = Config.___APP_NAME_CAMEL___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
 	}
 

@@ -8,21 +8,21 @@ plugins {
 	id(Plugins.androidxNavigationSafeargs)
 }
 
-apply(from = Config.___APP_NAME___.detekt)
+apply(from = Config.___APP_NAME_CAMEL___.detekt)
 
 android {
-	compileSdk = Config.___APP_NAME___.compileSdkVersion
+	compileSdk = Config.___APP_NAME_CAMEL___.compileSdkVersion
 
 	defaultConfig {
-		minSdk = Config.___APP_NAME___.minSdkVersion
-		targetSdk = Config.___APP_NAME___.targetSdkVersion
-		testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
+		minSdk = Config.___APP_NAME_CAMEL___.minSdkVersion
+		targetSdk = Config.___APP_NAME_CAMEL___.targetSdkVersion
+		testInstrumentationRunner = Config.___APP_NAME_CAMEL___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
 	}
 
 	buildTypes {
-		getByName(Config.___APP_NAME___.release) {
-			isMinifyEnabled = Config.___APP_NAME___.minifyEnabled
+		getByName(Config.___APP_NAME_CAMEL___.release) {
+			isMinifyEnabled = Config.___APP_NAME_CAMEL___.minifyEnabled
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),
 				"proguard-rules.pro"

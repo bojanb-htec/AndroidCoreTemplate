@@ -7,27 +7,27 @@ plugins {
     id(Plugins.firebaseAppDistribution)
 }
 
-apply(from = Config.___APP_NAME___.detekt)
+apply(from = Config.___APP_NAME_CAMEL___.detekt)
 
 android {
-    compileSdk = Config.___APP_NAME___.compileSdkVersion
+    compileSdk = Config.___APP_NAME_CAMEL___.compileSdkVersion
 
     defaultConfig {
-        applicationId = Config.___APP_NAME___.applicationId
-        minSdk = Config.___APP_NAME___.minSdkVersion
-        targetSdk = Config.___APP_NAME___.targetSdkVersion
+        applicationId = Config.___APP_NAME_CAMEL___.applicationId
+        minSdk = Config.___APP_NAME_CAMEL___.minSdkVersion
+        targetSdk = Config.___APP_NAME_CAMEL___.targetSdkVersion
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = Config.___APP_NAME___.instrumentationRunner
-        multiDexEnabled = Config.___APP_NAME___.multiDex
+        testInstrumentationRunner = Config.___APP_NAME_CAMEL___.instrumentationRunner
+        multiDexEnabled = Config.___APP_NAME_CAMEL___.multiDex
     }
 
     signingConfigs {
 
         Signing.loadReleaseProperties(project)
 
-        create(Config.___APP_NAME___.release) {
+        create(Config.___APP_NAME_CAMEL___.release) {
             if (Signing.keystoreProperties.isNotEmpty()) {
                 keyAlias = Signing.keyAlias
                 keyPassword = Signing.keyPassword
@@ -38,15 +38,15 @@ android {
     }
 
     buildTypes {
-        getByName(Config.___APP_NAME___.release) {
-            isMinifyEnabled = Config.___APP_NAME___.minifyEnabled
+        getByName(Config.___APP_NAME_CAMEL___.release) {
+            isMinifyEnabled = Config.___APP_NAME_CAMEL___.minifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName(Config.___APP_NAME___.release)
+            signingConfig = signingConfigs.getByName(Config.___APP_NAME_CAMEL___.release)
         }
-        getByName(Config.___APP_NAME___.debug) {
+        getByName(Config.___APP_NAME_CAMEL___.debug) {
             firebaseAppDistribution {
                 groups = Config.FirebaseDistribution.groups
                 releaseNotesFile = Config.FirebaseDistribution.releaseNotesFile

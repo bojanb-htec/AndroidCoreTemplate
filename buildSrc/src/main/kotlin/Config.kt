@@ -2,7 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Config {
 
-	object ___APP_NAME___ {
+	object ___APP_NAME_CAMEL___ {
 		const val applicationId = "___PACKAGE_NAME___"
 		const val compileSdkVersion = 33
 		const val minSdkVersion = 21
