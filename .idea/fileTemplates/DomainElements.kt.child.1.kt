@@ -7,7 +7,6 @@
 ## Convert to lower case only first char:**
 #set( $useCaseLowerFirst= $USE_CASE.replaceFirst( $USE_CASE.substring(0, 1), $USE_CASE.substring(0, 1).toLowerCase() ) )
 
-import com.htec.core.domain.Result
 
 interface ${ENTITY}Repository {
     suspend fun ${useCaseLowerFirst}(): Result<Unit>

@@ -12,7 +12,7 @@
 #set( $entityToSnakeCase = $ENTITY.replaceAll($regex, $replacement).toLowerCase())
 #set( $entityLowerCase= $ENTITY.toLowerCase())
 
-import com.htec.core.presentation.adapter.BaseAdapter
+import com.htecgroup.core.presentation.adapter.BaseAdapter
 import ${rootPackage}.presentation.R
 import ${rootPackage}.presentation.${entityLowerCase}.${ENTITY}View
 import javax.inject.Inject

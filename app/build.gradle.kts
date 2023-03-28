@@ -50,7 +50,7 @@ android {
             firebaseAppDistribution {
                 groups = Config.FirebaseDistribution.groups
                 releaseNotesFile = Config.FirebaseDistribution.releaseNotesFile
-                serviceCredentialsFile = Config.FirebaseDistribution.serviceCredentialsFile
+                // serviceCredentialsFile = Config.FirebaseDistribution.serviceCredentialsFile
             }
         }
     }

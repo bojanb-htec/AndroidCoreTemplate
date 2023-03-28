@@ -8,7 +8,7 @@
 
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
-import com.htec.core.presentation.routes.NavigationController
+import com.htecgroup.core.presentation.routes.NavigationController
 import ${rootPackage}.presentation.R
 import javax.inject.Inject
 
