@@ -52,7 +52,6 @@ dependencies {
 	implementation(Libs.kotlinx_coroutines_core)
 	implementation(Libs.kotlinx_coroutines_android)
 
-	testImplementation(platform(Libs.core_bom))
 	testImplementation(Libs.test)
 
 	testImplementation(Libs.robolectric)

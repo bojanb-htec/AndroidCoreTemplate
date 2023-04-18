@@ -84,7 +84,6 @@ dependencies {
 	kapt(Libs.moshi_kotlin_codegen)
 
 	// Test
-	testImplementation(platform(Libs.core_bom))
 	testImplementation(Libs.test)
 	testImplementation(Libs.robolectric)
 	testImplementation(Libs.core_testing)

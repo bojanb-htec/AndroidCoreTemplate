@@ -65,6 +65,8 @@ captures/
 db.db
 .DS_Store
 
+**/signing/*
+
 # Freeline
 freeline.py
 freeline/

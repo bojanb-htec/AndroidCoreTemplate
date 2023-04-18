@@ -20,6 +20,6 @@ class ${USE_CASE}UseCase @Inject constructor(
     private val ${entityLowerFirst}Repository: ${ENTITY}Repository
 ) : CoreUseCase(), IFlowParamUseCase<${PARAM_TYPE}, Result<Unit>> {
 
-    override fun invoke(data: ${PARAM_TYPE}): Flow<Result<Unit>> =
+    override operator fun invoke(data: ${PARAM_TYPE}): Flow<Result<Unit>> =
         ${entityLowerFirst}Repository.${useCaseLowerFirst}(data)
 }

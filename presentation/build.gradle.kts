@@ -85,7 +85,6 @@ dependencies {
 	implementation(Libs.work_runtime_ktx)
 
 	// Test
-	testImplementation(platform(Libs.core_bom))
 	testImplementation(Libs.test)
 	testImplementation(Libs.robolectric)
 	testImplementation(Libs.core_testing)
