@@ -106,7 +106,7 @@ public object Libs {
 
     public const val google_services: String = "com.google.gms:google-services:_"
 
-    public const val core_bom: String = "com.htecgroup.core:core-bom:_"
+    public const val core_bom: String = "com.htecgroup.core:bom:_"
 
     public const val `data`: String = "com.htecgroup.core:data"
 
