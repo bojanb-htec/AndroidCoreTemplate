@@ -30,15 +30,9 @@ class ___APP_NAME_CAMEL___Application : CoreApplication() {
 
     override fun enableMultiDex() = true
 
-    /**
-     * #DataBindingSample
-     * Uncomment the function [___APP_NAME_CAMEL___Application.initViewModelId] to enable Data Binding sample
-     */
-    /*
-    public override fun initViewModelId() {
-        ViewModelIdProvider.viewModelId = BR.vm
-    }
-    */
+    // only-for-databinding: public override fun initViewModelId() {
+    // only-for-databinding:     ViewModelIdProvider.viewModelId = BR.vm
+    // only-for-databinding: }
 
     companion object {
         lateinit var app: ___APP_NAME_CAMEL___Application

@@ -14,6 +14,5 @@ include(
 	":app",
 	":data",
 	":domain",
-	":presentation",
-	":presentation-databinding"
+	":presentation"
 )

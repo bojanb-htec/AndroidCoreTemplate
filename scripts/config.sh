@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # Replacing PACKAGE_NAME placeholder with provided package name
-echo "Enter package name:"
-read package
+read -p "Enter package name:" package
 packagePlaceholder="___PACKAGE_NAME___"
 
 # Find and replace the string in all files under the search directory, ignoring .git directories
@@ -27,8 +26,7 @@ done
 
 
 # Replacing App Name with provided input
-echo "Enter app name:"
-read name
+read -p "Enter app name:" name
 appNamePlaceholder="___APP_NAME___"
 
 # Find and replace the string in all files under the search directory, ignoring .git directories
@@ -52,3 +50,25 @@ for file in $(find . -type f -name "*$appNameCamelPlaceholder*"); do
   # Move all files from the old directory to the new one
   mv "$file" "$new_file"
 done
+
+
+# Chose presentation layer type
+read -p "Do you want to use Compose? [YES]" useCompose
+useCompose=${useCompose:-YES}
+
+case "$useCompose" in
+    [yY][eE][sS]|[yY])
+        echo "Setting up Compose..."
+        rm -rf ./presentation-databinding
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-databinding\:/d' {} +
+        ;;
+    [nN][oO]|[nN])
+        echo "Setting up databinding..."
+        rm -rf ./presentation
+        mv ./presentation-databinding ./presentation
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-databinding\: //g' {} +
+        ;;
+    *)
+        echo "Invalid input."
+        ;;
+esac

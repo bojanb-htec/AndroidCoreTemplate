@@ -72,11 +72,6 @@ android {
 dependencies {
     implementation(project(Config.Module.domain))
     implementation(project(Config.Module.data))
-    /**
-     * #DataBindingSample
-     * Change with the following line to enable databinding example
-     * implementation(project(Config.Module.presentationDatabinding))
-     */
     implementation(project(Config.Module.presentation))
 
     // Hilt
