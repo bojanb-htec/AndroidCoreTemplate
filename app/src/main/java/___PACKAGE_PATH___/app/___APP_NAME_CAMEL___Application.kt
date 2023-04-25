@@ -29,7 +29,7 @@ class ___APP_NAME_CAMEL___Application : CoreApplication() {
     }
 
     override fun enableMultiDex() = true
-
+    // only-for-databinding: 
     // only-for-databinding: public override fun initViewModelId() {
     // only-for-databinding:     ViewModelIdProvider.viewModelId = BR.vm
     // only-for-databinding: }
