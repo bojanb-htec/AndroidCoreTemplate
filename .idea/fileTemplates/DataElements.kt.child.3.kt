@@ -1,7 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME}.network.api
-    #set( $presentationIndex = $PACKAGE_NAME.indexOf(".data") )
-    #if( $presentationIndex >= 0 )
-        #set( $rootPackage = $PACKAGE_NAME.substring(0, $presentationIndex) )
+    #set( $dataDirIndex = $PACKAGE_NAME.indexOf(".data") )
+    #if( $dataDirIndex >= 0 )
+        #set( $rootPackage = $PACKAGE_NAME.substring(0, $dataDirIndex) )
     #end
 #end
 #parse("File Header.java")

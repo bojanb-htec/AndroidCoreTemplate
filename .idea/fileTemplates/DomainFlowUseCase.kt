@@ -1,7 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME}
-    #set( $presentationIndex = $PACKAGE_NAME.indexOf(".domain") )
-    #if( $presentationIndex >= 0 )
-        #set( $rootPackage = $PACKAGE_NAME.substring(0, $presentationIndex) )
+    #set( $domainDirIndex = $PACKAGE_NAME.indexOf(".domain") )
+    #if( $domainDirIndex >= 0 )
+        #set( $rootPackage = $PACKAGE_NAME.substring(0, $domainDirIndex) )
     #end
 #end
 #parse("File Header.java")
