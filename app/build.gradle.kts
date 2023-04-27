@@ -4,7 +4,7 @@ plugins {
     kotlin(Plugins.kapt)
     id(Plugins.hilt)
     // only-for-crashlytics: id(Plugins.firebaseCrashlytics)
-    id(Plugins.firebaseAppDistribution)
+    // only-for-app-distribution: id(Plugins.firebaseAppDistribution)
 }
 
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
@@ -46,13 +46,13 @@ android {
             )
             signingConfig = signingConfigs.getByName(Config.___APP_NAME_CAMEL___.release)
         }
-        getByName(Config.___APP_NAME_CAMEL___.debug) {
-            firebaseAppDistribution {
-                groups = Config.FirebaseDistribution.groups
-                releaseNotesFile = Config.FirebaseDistribution.releaseNotesFile
-                // serviceCredentialsFile = Config.FirebaseDistribution.serviceCredentialsFile
-            }
-        }
+        // only-for-app-distribution: getByName(Config.___APP_NAME_CAMEL___.debug) {
+        // only-for-app-distribution:     firebaseAppDistribution {
+        // only-for-app-distribution:         groups = Config.FirebaseDistribution.groups
+        // only-for-app-distribution:         releaseNotesFile = Config.FirebaseDistribution.releaseNotesFile
+        // only-for-app-distribution:         // serviceCredentialsFile = Config.FirebaseDistribution.serviceCredentialsFile
+        // only-for-app-distribution:     }
+        // only-for-app-distribution: }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

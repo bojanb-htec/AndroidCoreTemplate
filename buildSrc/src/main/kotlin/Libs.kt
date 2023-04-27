@@ -90,9 +90,9 @@ public object Libs {
             "com.google.dagger:hilt-android-gradle-plugin:_"
 // only-for-analytics: 
 // only-for-analytics:     public const val firebase_analytics_ktx: String = "com.google.firebase:firebase-analytics-ktx"
-
-    public const val firebase_appdistribution_gradle: String =
-            "com.google.firebase:firebase-appdistribution-gradle:_"
+// only-for-app-distribution: 
+// only-for-app-distribution:     public const val firebase_appdistribution_gradle: String =
+// only-for-app-distribution:             "com.google.firebase:firebase-appdistribution-gradle:_"
 
     public const val firebase_bom: String = "com.google.firebase:firebase-bom:_"
 // only-for-crashlytics: 

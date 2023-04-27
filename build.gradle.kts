@@ -13,10 +13,10 @@ buildscript {
 		classpath(Libs.google_services)
 		// only-for-crashlytics: classpath(Libs.firebase_crashlytics_gradle)
 		classpath(Libs.android_junit5)
-		classpath(Libs.firebase_appdistribution_gradle) {
-			// Conflicting versions with refreshVersions plugin
-			exclude(group = "com.google.guava", module = "guava")
-		}
+		// only-for-app-distribution: classpath(Libs.firebase_appdistribution_gradle) {
+		// only-for-app-distribution: 	// Conflicting versions with refreshVersions plugin
+		// only-for-app-distribution: 	exclude(group = "com.google.guava", module = "guava")
+		// only-for-app-distribution: }
 		classpath(Libs.hilt_android_gradle_plugin)
 		classpath(Libs.navigation_safe_args_gradle_plugin)
 	}

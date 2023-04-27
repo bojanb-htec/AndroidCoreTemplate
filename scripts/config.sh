@@ -156,3 +156,23 @@ case "$useCrashlytics" in
         echo "Invalid input."
         ;;
 esac
+
+# Setup App Distribution
+read -p "Do you want setup Firebase App Distribution? [YES]" useAppDistribution
+useAppDistribution=${useAppDistribution:-YES}
+
+case "$useAppDistribution" in
+    [yY][eE][sS]|[yY])
+        echo "Setting up App Distribution..."
+        # Uncomment // only-for-app-distribution: lines
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-app-distribution\: //g' {} +
+        ;;
+    [nN][oO]|[nN])
+        echo "Removing App Distribution support..."
+        # remove all lines containing comment // only-for-app-distribution:
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-app-distribution\:/d' {} +
+        ;;
+    *)
+        echo "Invalid input."
+        ;;
+esac

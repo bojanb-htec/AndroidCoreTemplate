@@ -9,7 +9,7 @@ object Plugins {
 	const val kapt = "kapt"
 
 	const val junit5 = "de.mannodermaus.android-junit5"
-	const val firebaseAppDistribution = "com.google.firebase.appdistribution"
+// only-for-app-distribution: 	const val firebaseAppDistribution = "com.google.firebase.appdistribution"
 	const val googleServices = "com.google.gms.google-services"
 // only-for-crashlytics: 	const val firebaseCrashlytics = "com.google.firebase.crashlytics"
 	const val hilt = "dagger.hilt.android.plugin"

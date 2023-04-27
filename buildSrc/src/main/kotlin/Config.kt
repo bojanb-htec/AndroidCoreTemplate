@@ -24,12 +24,12 @@ object Config {
 		const val data = ":data"
 		const val test = ":test"
 	}
-
-	object FirebaseDistribution {
-		const val groups = "htec"
-		const val releaseNotesFile = "./app/release-notes.txt"
-		// const val serviceCredentialsFile = "./app/app-name-firebase.json"
-	}
+// only-for-app-distribution: 
+// only-for-app-distribution: 	object FirebaseDistribution {
+// only-for-app-distribution: 		const val groups = "htec"
+// only-for-app-distribution: 		const val releaseNotesFile = "./app/release-notes.txt"
+// only-for-app-distribution: 		// const val serviceCredentialsFile = "./app/app-name-firebase.json"
+// only-for-app-distribution: 	}
 
 	object Dev {
 		const val name = "dev"
