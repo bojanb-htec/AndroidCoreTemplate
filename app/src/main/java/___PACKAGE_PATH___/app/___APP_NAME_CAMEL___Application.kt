@@ -3,6 +3,7 @@ package ___PACKAGE_NAME___.app
 import com.google.android.gms.ads.MobileAds
 import com.htecgroup.core.presentation.CoreApplication
 import ___PACKAGE_NAME___.domain.service.NotificationController
+// only-for-databinding: import ___PACKAGE_NAME___.presentation.viewmodel.ViewModelIdProvider
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
