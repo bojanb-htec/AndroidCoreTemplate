@@ -83,7 +83,7 @@ dependencies {
 
     implementation(platform(Libs.firebase_bom))
     implementation(Libs.firebase_crashlytics_ktx)
-    implementation(Libs.firebase_analytics_ktx)
+    // only-for-analytics: implementation(Libs.firebase_analytics_ktx)
     // only-for-push-notifications: implementation(Libs.firebase_messaging_ktx)
 
     implementation(Libs.work_runtime_ktx)

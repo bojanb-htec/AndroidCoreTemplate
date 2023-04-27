@@ -88,8 +88,8 @@ public object Libs {
 
     public const val hilt_android_gradle_plugin: String =
             "com.google.dagger:hilt-android-gradle-plugin:_"
-
-    public const val firebase_analytics_ktx: String = "com.google.firebase:firebase-analytics-ktx"
+// only-for-analytics: 
+// only-for-analytics:     public const val firebase_analytics_ktx: String = "com.google.firebase:firebase-analytics-ktx"
 
     public const val firebase_appdistribution_gradle: String =
             "com.google.firebase:firebase-appdistribution-gradle:_"

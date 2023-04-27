@@ -106,3 +106,29 @@ case "$usePushNotifications" in
         echo "Invalid input."
         ;;
 esac
+
+# Setup analytics
+read -p "Do you want setup Firebase analytics? [YES]" useAnalytics
+useAnalytics=${useAnalytics:-YES}
+
+case "$useAnalytics" in
+    [yY][eE][sS]|[yY])
+        echo "Setting up analytics..."
+        # Uncomment // only-for-analytics: lines
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-analytics\: //g' {} +
+        ;;
+    [nN][oO]|[nN])
+        echo "Removing analytics support..."
+        # Removing unnecessary files and folders
+        rm -rf ./app/src/main/java/$packagePath/app/di/AnalyticsModule.kt
+        rm -rf ./app/src/main/java/$packagePath/app/infrastructure/AnalyticsParamImpl.kt
+        rm -rf ./app/src/main/java/$packagePath/app/infrastructure/FirebaseAnalyticsImpl.kt
+        rm -rf ./domain/src/main/java/$packagePath/domain/service/analytics
+
+        # remove all lines containing comment // only-for-analytics:
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-analytics\:/d' {} +
+        ;;
+    *)
+        echo "Invalid input."
+        ;;
+esac
