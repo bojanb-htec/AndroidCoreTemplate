@@ -3,7 +3,7 @@ plugins {
     kotlin(Plugins.android)
     kotlin(Plugins.kapt)
     id(Plugins.hilt)
-    id(Plugins.firebaseCrashlytics)
+    // only-for-crashlytics: id(Plugins.firebaseCrashlytics)
     id(Plugins.firebaseAppDistribution)
 }
 
@@ -82,7 +82,7 @@ dependencies {
     implementation(Libs.play_services_ads)
 
     implementation(platform(Libs.firebase_bom))
-    implementation(Libs.firebase_crashlytics_ktx)
+    // only-for-crashlytics: implementation(Libs.firebase_crashlytics_ktx)
     // only-for-analytics: implementation(Libs.firebase_analytics_ktx)
     // only-for-push-notifications: implementation(Libs.firebase_messaging_ktx)
 

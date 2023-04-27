@@ -11,7 +11,7 @@ buildscript {
 		classpath(Libs.com_android_tools_build_gradle)
 		classpath(Libs.kotlin_gradle_plugin)
 		classpath(Libs.google_services)
-		classpath(Libs.firebase_crashlytics_gradle)
+		// only-for-crashlytics: classpath(Libs.firebase_crashlytics_gradle)
 		classpath(Libs.android_junit5)
 		classpath(Libs.firebase_appdistribution_gradle) {
 			// Conflicting versions with refreshVersions plugin

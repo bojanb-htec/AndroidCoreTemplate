@@ -132,3 +132,27 @@ case "$useAnalytics" in
         echo "Invalid input."
         ;;
 esac
+
+# Setup Crashlytics
+read -p "Do you want setup Crashlytics? [YES]" useCrashlytics
+useCrashlytics=${useCrashlytics:-YES}
+
+case "$useCrashlytics" in
+    [yY][eE][sS]|[yY])
+        echo "Setting up Crashlytics..."
+        # Uncomment // only-for-crashlytics: lines
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-crashlytics\: //g' {} +
+        ;;
+    [nN][oO]|[nN])
+        echo "Removing Crashlytics support..."
+        # Removing unnecessary files and folders
+        rm -rf ./app/src/main/java/$packagePath/app/di/CrashlyticsModule.kt
+        rm -rf ./app/src/main/java/$packagePath/app/infrastructure/FirebaseCrashlyticsImpl.kt
+
+        # remove all lines containing comment // only-for-crashlytics:
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-crashlytics\:/d' {} +
+        ;;
+    *)
+        echo "Invalid input."
+        ;;
+esac

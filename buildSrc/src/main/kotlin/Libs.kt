@@ -95,12 +95,12 @@ public object Libs {
             "com.google.firebase:firebase-appdistribution-gradle:_"
 
     public const val firebase_bom: String = "com.google.firebase:firebase-bom:_"
-
-    public const val firebase_crashlytics_gradle: String =
-            "com.google.firebase:firebase-crashlytics-gradle:_"
-
-    public const val firebase_crashlytics_ktx: String =
-            "com.google.firebase:firebase-crashlytics-ktx"
+// only-for-crashlytics: 
+// only-for-crashlytics:     public const val firebase_crashlytics_gradle: String =
+// only-for-crashlytics:             "com.google.firebase:firebase-crashlytics-gradle:_"
+// only-for-crashlytics: 
+// only-for-crashlytics:     public const val firebase_crashlytics_ktx: String =
+// only-for-crashlytics:             "com.google.firebase:firebase-crashlytics-ktx"
 // only-for-push-notifications: 
 // only-for-push-notifications:     public const val firebase_messaging_ktx: String = "com.google.firebase:firebase-messaging-ktx"
 
