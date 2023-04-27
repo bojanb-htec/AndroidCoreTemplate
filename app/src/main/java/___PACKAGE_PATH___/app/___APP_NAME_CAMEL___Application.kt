@@ -2,16 +2,16 @@ package ___PACKAGE_NAME___.app
 
 import com.google.android.gms.ads.MobileAds
 import com.htecgroup.core.presentation.CoreApplication
-import ___PACKAGE_NAME___.domain.service.NotificationController
+// only-for-push-notifications: import ___PACKAGE_NAME___.domain.service.NotificationController
 // only-for-databinding: import ___PACKAGE_NAME___.presentation.viewmodel.ViewModelIdProvider
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
 class ___APP_NAME_CAMEL___Application : CoreApplication() {
-
-    @Inject
-    lateinit var notificationController: NotificationController
+// only-for-push-notifications: 
+// only-for-push-notifications:     @Inject
+// only-for-push-notifications:     lateinit var notificationController: NotificationController
 
     init {
         app = this
@@ -25,7 +25,7 @@ class ___APP_NAME_CAMEL___Application : CoreApplication() {
 
         // Stetho.initializeWithDefaults(this);
 
-        notificationController.createNotificationChannels()
+        // only-for-push-notifications: notificationController.createNotificationChannels()
         MobileAds.initialize(this)
     }
 

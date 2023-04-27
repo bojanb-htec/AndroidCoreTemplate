@@ -28,18 +28,18 @@
 		<meta-data
 			android:name="com.google.android.gms.ads.APPLICATION_ID"
 			android:value="ca-app-pub-6075416668238649~6363006176" />
-
-		<service
-			android:name="___PACKAGE_NAME___.data.notification.PushNotificationService"
-			android:exported="false">
-			<intent-filter>
-				<action android:name="com.google.firebase.MESSAGING_EVENT" />
-			</intent-filter>
-		</service>
-
-		<meta-data
-			android:name="com.google.firebase.messaging.default_notification_channel_id"
-			android:value="@string/default_notification_channel_id" />
+// only-for-push-notifications: 
+// only-for-push-notifications: 		<service
+// only-for-push-notifications: 			android:name="___PACKAGE_NAME___.data.notification.PushNotificationService"
+// only-for-push-notifications: 			android:exported="false">
+// only-for-push-notifications: 			<intent-filter>
+// only-for-push-notifications: 				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+// only-for-push-notifications: 			</intent-filter>
+// only-for-push-notifications: 		</service>
+// only-for-push-notifications: 
+// only-for-push-notifications: 		<meta-data
+// only-for-push-notifications: 			android:name="com.google.firebase.messaging.default_notification_channel_id"
+// only-for-push-notifications: 			android:value="@string/default_notification_channel_id" />
 	</application>
 
 </manifest>

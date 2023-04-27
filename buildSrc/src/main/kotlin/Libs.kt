@@ -101,8 +101,8 @@ public object Libs {
 
     public const val firebase_crashlytics_ktx: String =
             "com.google.firebase:firebase-crashlytics-ktx"
-
-    public const val firebase_messaging_ktx: String = "com.google.firebase:firebase-messaging-ktx"
+// only-for-push-notifications: 
+// only-for-push-notifications:     public const val firebase_messaging_ktx: String = "com.google.firebase:firebase-messaging-ktx"
 
     public const val google_services: String = "com.google.gms:google-services:_"
 
