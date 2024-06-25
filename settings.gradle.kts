@@ -1,13 +1,30 @@
-plugins {
-	// See https://jmfayard.github.io/refreshVersions
-	id("de.fayard.refreshVersions") version "0.51.0"
+
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        maven { setUrl("https://jitpack.io") }
+//        jitpack()
+        mavenLocal()
+    }
 }
 
-refreshVersions {
-	enableBuildSrcLibs()
-	rejectVersionIf {
-		candidate.stabilityLevel.isLessStableThan(current.stabilityLevel)
-	}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { setUrl("https://jitpack.io") }
+        //        jitpack()
+        mavenLocal()
+    }
 }
 
 include(

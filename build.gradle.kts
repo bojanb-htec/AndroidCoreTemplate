@@ -1,29 +1,22 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-
-	repositories {
-		google()
-		mavenCentral()
-		mavenLocal()
-	}
-	dependencies {
-		classpath(Libs.com_android_tools_build_gradle)
-		classpath(Libs.kotlin_gradle_plugin)
-		classpath(Libs.google_services)
-		// only-for-crashlytics: classpath(Libs.firebase_crashlytics_gradle)
-		classpath(Libs.android_junit5)
-		// only-for-app-distribution: classpath(Libs.firebase_appdistribution_gradle) {
-		// only-for-app-distribution: 	// Conflicting versions with refreshVersions plugin
-		// only-for-app-distribution: 	exclude(group = "com.google.guava", module = "guava")
-		// only-for-app-distribution: }
-		classpath(Libs.hilt_android_gradle_plugin)
-		classpath(Libs.navigation_safe_args_gradle_plugin)
-	}
-}
-
 plugins {
-	id(Plugins.detekt).version(Libs.io_gitlab_arturbosch_detekt_gradle_plugin)
+    // only-for-crashlytics: alias(libs.plugins.com.google.firebase.crashlytics) apply false
+    // only-for-app-distribution: alias(libs.plugins.com.google.firebase.appdistribution) apply false
+    alias(libs.plugins.com.google.gms.google.services) apply false
+    alias(libs.plugins.androidx.navigation.safeargs) apply false
+
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.jetbrains.kotlin.android) apply false
+    alias(libs.plugins.com.google.dagger.hilt.android) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.kapt) apply false
+    alias(libs.plugins.com.google.developers.ksp) apply false
+    alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.android.junit5) apply false
+    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
+
+    alias(libs.plugins.io.gitlab.arturbosch.detekt)
 }
 
 allprojects {
@@ -36,7 +29,7 @@ allprojects {
 }
 
 tasks.wrapper {
-	gradleVersion = "7.5.1"
+	gradleVersion = libs.versions.agp.get()
 	distributionType = Wrapper.DistributionType.ALL
 }
 

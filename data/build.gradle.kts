@@ -1,9 +1,9 @@
 plugins {
-	id(Plugins.androidLibrary)
-	kotlin(Plugins.android)
-	kotlin(Plugins.kapt)
-	id(Plugins.junit5)
-	id(Plugins.hilt)
+	alias(libs.plugins.android.library)
+	alias(libs.plugins.jetbrains.kotlin.android)
+	alias(libs.plugins.com.google.developers.ksp)
+	alias(libs.plugins.android.junit5)
+	alias(libs.plugins.com.google.dagger.hilt.android)
 }
 
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
@@ -44,6 +44,10 @@ android {
 		jvmTarget = Config.___APP_NAME_CAMEL___.javaVersion.toString()
 	}
 
+	buildFeatures {
+		buildConfig = true
+	}
+
 	lint {
 		abortOnError = false
 	}
@@ -57,50 +61,51 @@ android {
 }
 
 dependencies {
-	implementation(platform(Libs.core_bom))
-	implementation(Libs.data)
+	implementation(platform(libs.htecgroup.androidcore.bom))
+	implementation(libs.htecgroup.androidcore.data)
 
 	implementation(project(Config.Module.domain))
 
 	// Hilt
-	implementation(Libs.hilt_android)
-	kapt(Libs.hilt_android_compiler)
+	implementation(libs.dagger.hilt)
+	ksp(libs.dagger.hilt.compiler)
 
 	// Room
-	implementation(Libs.room_runtime)
-	kapt(Libs.room_compiler)
-	implementation(Libs.room_ktx)
+	implementation(libs.androidx.room.runtime)
+	ksp(libs.androidx.room.compiler)
+	implementation(libs.androidx.room.ktx)
 
 	// Squareup
-	implementation(Libs.logging_interceptor)
+	implementation(libs.logging.interceptor)
 
-	implementation(platform(Libs.firebase_bom))
-	// only-for-crashlytics: implementation(Libs.firebase_crashlytics_ktx)
-	// only-for-analytics: implementation(Libs.firebase_analytics_ktx)
-	// only-for-push-notifications: implementation(Libs.firebase_messaging_ktx)
+	implementation(platform(libs.firebase.bom))
+	// only-for-crashlytics: implementation(libs.firebase.crashlytics.ktx)
+	// only-for-analytics: implementation(libs.firebase.analytics.ktx)
+	// only-for-push-notifications: implementation(libs.firebase.messaging.ktx)
 
-	implementation(Libs.work_runtime_ktx)
+	implementation(libs.androidx.work.runtime.ktx)
 
-	kapt(Libs.moshi_kotlin_codegen)
+	ksp(libs.moshi.kotlin.codegen)
 
 	// Test
-	testImplementation(Libs.test)
-	testImplementation(Libs.robolectric)
-	testImplementation(Libs.core_testing)
-	testImplementation(Libs.core_ktx)
-	testImplementation(Libs.kotlinx_coroutines_test)
-	testImplementation(Libs.junit_ktx)
-	testImplementation(Libs.mockk)
-	testImplementation(Libs.kluent_android)
+	testImplementation(libs.htecgroup.androidcore.test)
+	testImplementation(libs.robolectric)
+	testImplementation(libs.androidx.core.testing)
+	testImplementation(libs.androidx.core.ktx)
+
+	testImplementation(libs.kotlinx.coroutines.test)
+	testImplementation(libs.androidx.junit.ktx)
+	testImplementation(libs.mockk)
+	testImplementation(libs.kluent.android)
 
 	// (Required) Writing and executing Unit Tests on the JUnit Platform
-	testImplementation(Libs.junit_jupiter_api)
-	testRuntimeOnly(Libs.junit_jupiter_engine)
+	testImplementation(libs.junit.jupiter.api)
+	testRuntimeOnly(libs.junit.jupiter.engine)
 
 	// (Optional) If you need "Parameterized Tests"
-	testImplementation(Libs.junit_jupiter_params)
+	testRuntimeOnly(libs.junit.jupiter.params)
 
 	// (Optional) If you also have JUnit 4-based tests
 	//testImplementation(Libs.junit)
-	testRuntimeOnly(Libs.junit_vintage_engine)
+	testRuntimeOnly(libs.junit.vintage.engine)
 }

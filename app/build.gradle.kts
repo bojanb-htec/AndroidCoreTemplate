@@ -1,10 +1,22 @@
 plugins {
-    id(Plugins.androidApplication)
-    kotlin(Plugins.android)
-    kotlin(Plugins.kapt)
-    id(Plugins.hilt)
-    // only-for-crashlytics: id(Plugins.firebaseCrashlytics)
-    // only-for-app-distribution: id(Plugins.firebaseAppDistribution)
+
+
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.google.dagger.hilt.android)
+    // only-for-crashlytics: alias(libs.plugins.com.google.firebase.crashlytics)
+    // only-for-app-distribution: alias(libs.plugins.com.google.firebase.appdistribution)
+    alias(libs.plugins.com.google.gms.google.services)
+
+    /**
+     * #DataBindingSample
+     * There is no support for ksp with databinding (kapt should be used instead).
+     *
+     * Change with the following line to enable databinding example
+     *
+     * alias(libs.plugins.org.jetbrains.kotlin.kapt)
+     */
+    alias(libs.plugins.com.google.developers.ksp)
 }
 
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
@@ -66,31 +78,33 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
-    implementation(project(Config.Module.domain))
-    implementation(project(Config.Module.data))
-    implementation(project(Config.Module.presentation))
+    implementation(platform(libs.htecgroup.androidcore.bom))
+    implementation(libs.htecgroup.androidcore.domain)
+    implementation(libs.htecgroup.androidcore.data)
+    implementation(libs.htecgroup.androidcore.presentation)
 
     // Hilt
-    implementation(Libs.hilt_android)
-    kapt(Libs.hilt_android_compiler)
-    kapt(Libs.hilt_compiler)
+    implementation(libs.dagger.hilt)
+    implementation(libs.androidx.hilt.navigation.compose)
+    /**
+     * #DataBindingSample
+     * Change with the following line to enable databinding example
+     * kapt(libs.dagger.hilt.compiler)
+     */
+    ksp(libs.dagger.hilt.compiler)
 
-    implementation(Libs.play_services_ads)
+    implementation(libs.play.services.ads)
 
-    implementation(platform(Libs.firebase_bom))
-    // only-for-crashlytics: implementation(Libs.firebase_crashlytics_ktx)
-    // only-for-analytics: implementation(Libs.firebase_analytics_ktx)
-    // only-for-push-notifications: implementation(Libs.firebase_messaging_ktx)
+    implementation(platform(libs.firebase.bom))
+    // only-for-crashlytics: implementation(libs.firebase.crashlytics.ktx)
+    // only-for-analytics: implementation(libs.firebase.analytics.ktx)
+    // only-for-push-notifications: implementation(libs.firebase.messaging.ktx)
 
-    implementation(Libs.work_runtime_ktx)
-}
+    implementation(libs.androidx.work.runtime.ktx)
 
-apply(plugin = Plugins.googleServices)
-
-repositories {
-    mavenCentral()
 }

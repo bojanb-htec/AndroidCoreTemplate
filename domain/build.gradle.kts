@@ -1,9 +1,9 @@
 plugins {
-	id(Plugins.androidLibrary)
-	kotlin(Plugins.android)
-	kotlin(Plugins.kapt)
-	id(Plugins.junit5)
-	id(Plugins.hilt)
+	alias(libs.plugins.android.library)
+	alias(libs.plugins.jetbrains.kotlin.android)
+	alias(libs.plugins.com.google.dagger.hilt.android)
+	alias(libs.plugins.com.google.developers.ksp)
+	alias(libs.plugins.android.junit5)
 }
 
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
@@ -41,37 +41,38 @@ android {
 }
 
 dependencies {
-	api(platform(Libs.core_bom))
-	api(Libs.domain)
+	api(platform(libs.htecgroup.androidcore.bom))
+	api(libs.htecgroup.androidcore.domain)
 
 	// Hilt
-	implementation(Libs.hilt_android)
-	kapt(Libs.hilt_android_compiler)
+	implementation(libs.dagger.hilt)
+	ksp(libs.dagger.hilt.compiler)
 
 	// Coroutines/Flows
-	implementation(Libs.kotlinx_coroutines_core)
-	implementation(Libs.kotlinx_coroutines_android)
+	implementation(libs.kotlinx.coroutines.core)
+	implementation(libs.kotlinx.coroutines.android)
 
-	testImplementation(Libs.test)
+	
+	testImplementation(libs.htecgroup.androidcore.test)
 
-	testImplementation(Libs.robolectric)
-	testImplementation(Libs.core_testing)
-	testImplementation(Libs.core_ktx)
-	testImplementation(Libs.kotlinx_coroutines_test)
-	testImplementation(Libs.junit_ktx)
-	testImplementation(Libs.mockk)
-	testImplementation(Libs.kluent_android)
+	testImplementation(libs.robolectric)
+	testImplementation(libs.androidx.core.testing)
+	testImplementation(libs.core.ktx)
+	testImplementation(libs.kotlinx.coroutines.test)
+	testImplementation(libs.androidx.junit.ktx)
+	testImplementation(libs.mockk)
+	testImplementation(libs.kluent.android)
 
 	// (Required) Writing and executing Unit Tests on the JUnit Platform
-	testImplementation(Libs.junit_jupiter_api)
-	testRuntimeOnly(Libs.junit_jupiter_engine)
+	testImplementation(libs.junit.jupiter.api)
+	testImplementation(libs.junit.jupiter.engine)
 
 	// (Optional) If you need "Parameterized Tests"
-	testImplementation(Libs.junit_jupiter_params)
+	testImplementation(libs.junit.jupiter.params)
 
 	// (Optional) If you also have JUnit 4-based tests
-	//testImplementation(Libs.junit)
-	testRuntimeOnly(Libs.junit_vintage_engine)
+//	testImplementation(libs.junit)
+	testImplementation(libs.junit.vintage.engine)
 
 }
 
