@@ -30,12 +30,12 @@ android {
 		}
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_11
-		targetCompatibility = JavaVersion.VERSION_11
+		sourceCompatibility = Config.___APP_NAME_CAMEL___.javaVersion
+		targetCompatibility = Config.___APP_NAME_CAMEL___.javaVersion
 	}
 
 	kotlinOptions {
-		jvmTarget = JavaVersion.VERSION_11.toString()
+		jvmTarget = Config.___APP_NAME_CAMEL___.javaVersion.toString()
 	}
 
 	lint {

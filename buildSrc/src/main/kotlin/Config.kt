@@ -15,7 +15,7 @@ object Config {
 		const val minifyEnabled = true
 		const val multiDex = true
 		const val detekt = "../detekt.gradle"
-		val javaVersion = JavaVersion.VERSION_11
+		val javaVersion = JavaVersion.VERSION_17
 	}
 
 	object Module {

@@ -42,7 +42,7 @@ tasks.wrapper {
 
 tasks.withType<KotlinCompile>().all {
 	kotlinOptions {
-		jvmTarget = JavaVersion.VERSION_11.toString()
+		jvmTarget = Config.___APP_NAME_CAMEL___.javaVersion.toString()
 	}
 }
 
