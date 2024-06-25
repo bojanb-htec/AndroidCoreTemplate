@@ -106,18 +106,18 @@ public object Libs {
 
     public const val google_services: String = "com.google.gms:google-services:_"
 
-    public const val core_bom: String = "com.htecgroup.core:bom:_"
+    public const val core_bom: String = "com.htecgroup.androidcore:bom:_"
 
-    public const val `data`: String = "com.htecgroup.core:data"
+    public const val `data`: String = "com.htecgroup.androidcore:data"
 
-    public const val domain: String = "com.htecgroup.core:domain"
+    public const val domain: String = "com.htecgroup.androidcore:domain"
 
-    public const val presentation: String = "com.htecgroup.core:presentation"
+    public const val presentation: String = "com.htecgroup.androidcore:presentation"
 
     public const val presentation_databinding: String =
-            "com.htecgroup.core:presentation-databinding"
+            "com.htecgroup.androidcore:presentation-databinding"
 
-    public const val test: String = "com.htecgroup.core:test"
+    public const val test: String = "com.htecgroup.androidcore:test"
 
     public const val moshi_kotlin_codegen: String = "com.squareup.moshi:moshi-kotlin-codegen:_"
 
