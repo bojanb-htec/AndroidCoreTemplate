@@ -12,8 +12,8 @@
 ## Convert to lower case only first char:**
 #set( $useCaseLowerFirst= $USE_CASE.replaceFirst( $USE_CASE.substring(0, 1), $USE_CASE.substring(0, 1).toLowerCase() ) )
 
-import com.htecgroup.core.domain.CoreUseCase
-import com.htecgroup.core.domain.IUseCase
+import com.htecgroup.androidcore.domain.CoreUseCase
+import com.htecgroup.androidcore.domain.IUseCase
 import ${rootPackage}.domain.${entityLower}.${ENTITY}Repository
 import javax.inject.Inject
 

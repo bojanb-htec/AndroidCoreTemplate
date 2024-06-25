@@ -13,7 +13,7 @@
 #set( $entityLowerCase= $ENTITY.toLowerCase())
 
 import androidx.recyclerview.widget.DiffUtil
-import com.htecgroup.core.presentation.adapter.BaseDiffAdapter
+import com.htecgroup.androidcore.presentation.adapter.BaseDiffAdapter
 import ${rootPackage}.presentation.R
 import ${rootPackage}.presentation.${entityLowerCase}.${ENTITY}View
 import javax.inject.Inject

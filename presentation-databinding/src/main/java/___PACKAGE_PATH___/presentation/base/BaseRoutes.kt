@@ -3,7 +3,7 @@ package ___PACKAGE_NAME___.presentation.base
 import android.app.Activity
 import android.content.Intent
 import androidx.navigation.NavController
-import com.htecgroup.core.presentation.routes.Routes
+import com.htecgroup.androidcore.presentation.routes.Routes
 import javax.inject.Inject
 
 open class BaseRoutes @Inject constructor(

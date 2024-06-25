@@ -10,7 +10,7 @@
 ## Convert to lower case only first char:**
 #set ($entityLowerFirst = $ENTITY.replaceFirst( $ENTITY.substring(0, 1), $ENTITY.substring(0, 1).toLowerCase() ) )
 
-import com.htecgroup.core.data.CoreRepository
+import com.htecgroup.androidcore.data.CoreRepository
 import ${rootPackage}.data.db.dao.${ENTITY}Dao
 import ${rootPackage}.data.network.api.${ENTITY}Api
 import ${rootPackage}.domain.${entityLower}.${ENTITY}Repository

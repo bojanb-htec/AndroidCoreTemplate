@@ -9,7 +9,7 @@
 #set( $entityLowerCase= $ENTITY.toLowerCase())
 #set( $entityLowerFirst= $ENTITY.replaceFirst( $ENTITY.substring(0, 1), $ENTITY.substring(0, 1).toLowerCase() ) )
 
-import com.htecgroup.core.presentation.viewmodel.CoreItemViewModel
+import com.htecgroup.androidcore.presentation.viewmodel.CoreItemViewModel
 import ${rootPackage}.presentation.${entityLowerCase}.${ENTITY}View
 import javax.inject.Inject
 

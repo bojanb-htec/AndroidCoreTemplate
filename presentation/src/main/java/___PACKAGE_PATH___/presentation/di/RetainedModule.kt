@@ -1,6 +1,6 @@
 package ___PACKAGE_NAME___.presentation.di
 
-import com.htecgroup.core.presentation.compose.composer.RouteComposer
+import com.htecgroup.androidcore.presentation.compose.composer.RouteComposer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

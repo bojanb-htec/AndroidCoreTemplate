@@ -10,8 +10,8 @@
 #set( $entityLowerFirst= $ENTITY.replaceFirst( $ENTITY.substring(0, 1), $ENTITY.substring(0, 1).toLowerCase() ) )
 #set( $useCaseLowerFirst= $USE_CASE.replaceFirst( $USE_CASE.substring(0, 1), $USE_CASE.substring(0, 1).toLowerCase() ) )
 
-import com.htecgroup.core.domain.CoreUseCase
-import com.htecgroup.core.domain.IParamUseCase
+import com.htecgroup.androidcore.domain.CoreUseCase
+import com.htecgroup.androidcore.domain.IParamUseCase
 import ${rootPackage}.domain.${entityLowerCase}.${ENTITY}Repository
 import javax.inject.Inject
 

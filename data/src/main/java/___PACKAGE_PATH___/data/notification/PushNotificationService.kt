@@ -2,7 +2,7 @@ package ___PACKAGE_NAME___.data.notification
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.htecgroup.core.domain.extension.TAG
+import com.htecgroup.androidcore.domain.extension.TAG
 import ___PACKAGE_NAME___.domain.service.Logger
 import ___PACKAGE_NAME___.domain.service.NotificationController
 import dagger.hilt.android.AndroidEntryPoint

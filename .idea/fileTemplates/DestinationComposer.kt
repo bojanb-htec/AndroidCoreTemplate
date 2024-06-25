@@ -8,9 +8,9 @@
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import com.htecgroup.core.presentation.compose.AnimateSlide
-import com.htecgroup.core.presentation.compose.composer.DestinationComposer
-import com.htecgroup.core.presentation.compose.navigation.Destination
+import com.htecgroup.androidcore.presentation.compose.AnimateSlide
+import com.htecgroup.androidcore.presentation.compose.composer.DestinationComposer
+import com.htecgroup.androidcore.presentation.compose.navigation.Destination
 import ${rootPackage}.presentation.R
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject

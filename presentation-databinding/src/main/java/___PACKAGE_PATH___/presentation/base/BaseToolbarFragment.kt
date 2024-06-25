@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import com.htecgroup.core.presentation.routes.Routes
+import com.htecgroup.androidcore.presentation.routes.Routes
 import ___PACKAGE_NAME___.presentation.R
 
 abstract class BaseToolbarFragment<BindingT : ViewDataBinding, ViewModelT : ViewModel, Route : Routes> :

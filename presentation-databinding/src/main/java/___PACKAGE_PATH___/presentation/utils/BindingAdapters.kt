@@ -4,8 +4,8 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.htecgroup.core.presentation.adapter.CoreAdapter
-import com.htecgroup.core.presentation.adapter.CoreDiffAdapter
+import com.htecgroup.androidcore.presentation.adapter.CoreAdapter
+import com.htecgroup.androidcore.presentation.adapter.CoreDiffAdapter
 import java.util.*
 
 @BindingAdapter(value = ["visibility", "setInvisible"], requireAll = false)

@@ -2,7 +2,7 @@ package ___PACKAGE_NAME___.presentation.base
 
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import com.htecgroup.core.presentation.CoreActivity
+import com.htecgroup.androidcore.presentation.CoreActivity
 import ___PACKAGE_NAME___.domain.service.Logger
 import javax.inject.Inject
 
