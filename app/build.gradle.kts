@@ -22,6 +22,7 @@ plugins {
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
 
 android {
+    namespace = "${Config.___APP_NAME_CAMEL___.applicationId}.app"
     compileSdk = Config.___APP_NAME_CAMEL___.compileSdkVersion
 
     defaultConfig {

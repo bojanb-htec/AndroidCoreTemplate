@@ -9,11 +9,11 @@ plugins {
 apply(from = Config.___APP_NAME_CAMEL___.detekt)
 
 android {
+  namespace = "${Config.___APP_NAME_CAMEL___.applicationId}.domain"
 	compileSdk = Config.___APP_NAME_CAMEL___.compileSdkVersion
 
 	defaultConfig {
 		minSdk = Config.___APP_NAME_CAMEL___.minSdkVersion
-		targetSdk = Config.___APP_NAME_CAMEL___.targetSdkVersion
 
 		testInstrumentationRunner = Config.___APP_NAME_CAMEL___.instrumentationRunner
 		consumerProguardFiles("consumer-rules.pro")
@@ -74,8 +74,4 @@ dependencies {
 //	testImplementation(libs.junit)
 	testImplementation(libs.junit.vintage.engine)
 
-}
-
-repositories {
-	mavenCentral()
 }

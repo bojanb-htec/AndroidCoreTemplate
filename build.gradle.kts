@@ -19,15 +19,6 @@ plugins {
     alias(libs.plugins.io.gitlab.arturbosch.detekt)
 }
 
-allprojects {
-	repositories {
-		google()
-		mavenCentral()
-		mavenLocal()
-		jitpack()
-	}
-}
-
 tasks.wrapper {
 	gradleVersion = libs.versions.agp.get()
 	distributionType = Wrapper.DistributionType.ALL
