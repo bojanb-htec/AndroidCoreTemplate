@@ -84,10 +84,9 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.htecgroup.androidcore.bom))
-    implementation(libs.htecgroup.androidcore.domain)
-    implementation(libs.htecgroup.androidcore.data)
-    implementation(libs.htecgroup.androidcore.presentation)
+    implementation(project(Config.Module.domain))
+    implementation(project(Config.Module.data))
+    implementation(project(Config.Module.presentation))
 
     // Hilt
     implementation(libs.dagger.hilt)

@@ -4,9 +4,9 @@ object Config {
 
 	object ___APP_NAME_CAMEL___ {
 		const val applicationId = "___PACKAGE_NAME___"
-		const val compileSdkVersion = 33
+		const val compileSdkVersion = 35
 		const val minSdkVersion = 21
-		const val targetSdkVersion = 33
+		const val targetSdkVersion = 35
 		const val versionCode = 1
 		const val versionName = "1.0.0"
 		const val instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
