@@ -12,12 +12,12 @@
       <template name="DataElements.kt.child.1.kt" file-name="db/dao/${ENTITY}Dao" reformat="true" live-template-enabled="false" />
       <template name="DataElements.kt.child.2.kt" file-name="network/entities/${ENTITY}Raw" reformat="true" live-template-enabled="false" />
       <template name="DataElements.kt.child.3.kt" file-name="network/api/${ENTITY}Api" reformat="true" live-template-enabled="false" />
-      <template name="DestinationComposer.kt" file-name="${DESTINATION_NAME}DestinationComposer" reformat="true" live-template-enabled="false">
-        <template name="DestinationComposer.kt.child.0.kt" file-name="${DESTINATION_NAME}ViewModel" reformat="true" live-template-enabled="false" />
-        <template name="DestinationComposer.kt.child.1.kt" file-name="${DESTINATION_NAME}Screen" reformat="true" live-template-enabled="false" />
-      </template>
-      <template name="DestinationComposer.kt.child.0.kt" file-name="${DESTINATION_NAME}ViewModel" reformat="true" live-template-enabled="false" />
-      <template name="DestinationComposer.kt.child.1.kt" file-name="${DESTINATION_NAME}Screen" reformat="true" live-template-enabled="false" />
+      // only-for-compose: <template name="PresentationElements.kt" file-name="${SCREEN}DestinationComposer" reformat="true" live-template-enabled="false">
+      // only-for-compose:   <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-compose:   <template name="PresentationElements.kt.child.1.kt" file-name="${SCREEN}Screen" reformat="true" live-template-enabled="false" />
+      // only-for-compose: </template>
+      // only-for-compose: <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-compose: <template name="PresentationElements.kt.child.1.kt" file-name="${SCREEN}Screen" reformat="true" live-template-enabled="false" />
       <template name="DomainElements.kt" file-name="${ENTITY.toLowerCase()}/${ENTITY}" reformat="true" live-template-enabled="false">
         <template name="DomainElements.kt.child.0.kt" file-name="${ENTITY.toLowerCase()}/usecase/${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
         <template name="DomainElements.kt.child.1.kt" file-name="${ENTITY.toLowerCase()}/${ENTITY}Repository" reformat="true" live-template-enabled="false" />
@@ -28,28 +28,28 @@
       <template name="DomainParamFlowUseCase.kt" file-name="${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
       <template name="DomainParamUseCase.kt" file-name="${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
       <template name="DomainUseCase.kt" file-name="${USE_CASE}UseCase" reformat="true" live-template-enabled="false" />
-      <template name="PresentationAdapter.kt" file-name="${ENTITY}Adapter" reformat="true" live-template-enabled="false">
-        <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
-        <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-      </template>
-      <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-      <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
-      <template name="PresentationDiffAdapter.kt" file-name="${ENTITY}Adapter" reformat="true" live-template-enabled="false">
-        <template name="PresentationDiffAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-        <template name="PresentationDiffAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
-      </template>
-      <template name="PresentationDiffAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-      <template name="PresentationDiffAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
-      <template name="PresentationElements.kt" file-name="${SCREEN}Fragment" reformat="true" live-template-enabled="false">
-        <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}Routes" reformat="true" live-template-enabled="false" />
-        <template name="PresentationElements.kt.child.1.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/fragment_${SCREEN.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-        <template name="PresentationElements.kt.child.2.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
-      </template>
-      <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}Routes" reformat="true" live-template-enabled="false" />
-      <template name="PresentationElements.kt.child.1.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/fragment_${SCREEN.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
-      <template name="PresentationElements.kt.child.2.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationAdapter.kt" file-name="${ENTITY}Adapter" reformat="true" live-template-enabled="false">
+      // only-for-databinding:   <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding:   <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: </template>
+      // only-for-databinding: <template name="PresentationAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationDiffAdapter.kt" file-name="${ENTITY}Adapter" reformat="true" live-template-enabled="false">
+      // only-for-databinding:   <template name="PresentationDiffAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding:   <template name="PresentationDiffAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: </template>
+      // only-for-databinding: <template name="PresentationDiffAdapter.kt.child.0.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/item_${ENTITY.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationDiffAdapter.kt.child.1.kt" file-name="${ENTITY}ItemViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationElements.kt" file-name="${SCREEN}Fragment" reformat="true" live-template-enabled="false">
+      // only-for-databinding:   <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}Routes" reformat="true" live-template-enabled="false" />
+      // only-for-databinding:   <template name="PresentationElements.kt.child.1.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/fragment_${SCREEN.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding:   <template name="PresentationElements.kt.child.2.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: </template>
+      // only-for-databinding: <template name="PresentationElements.kt.child.0.kt" file-name="${SCREEN}Routes" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationElements.kt.child.1.xml" file-name="${PACKAGE_NAME.replaceAll(&quot;\.&quot;, &quot;\/&quot;).replaceAll(&quot;\w+&quot;, &quot;..&quot;)}/../res/layout/fragment_${SCREEN.replaceAll(&quot;([a-z])([A-Z]+)&quot;, &quot;$1_$2&quot;).toLowerCase()}" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationElements.kt.child.2.kt" file-name="${SCREEN}ViewModel" reformat="true" live-template-enabled="false" />
+      // only-for-databinding: <template name="PresentationNavController.kt" file-name="${NAV_NAME}NavigationController" reformat="true" live-template-enabled="false" />
       <template name="PresentationEntityView.kt" file-name="${ENTITY}View" reformat="true" live-template-enabled="false" />
-      <template name="PresentationNavController.kt" file-name="${NAV_NAME}NavigationController" reformat="true" live-template-enabled="false" />
     </default_templates>
   </component>
 </project>

@@ -15,24 +15,25 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.htecgroup.androidcore.presentation.model.DataUiState
+import com.htecgroup.androidcore.presentation.model.DataUiState.Idle
+import ${rootPackage}.presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ${DESTINATION_NAME}Screen(title: MutableState<String>, body: MutableState<String>, onClick: () -> Unit) {
+fun ${SCREEN}Screen(uiState: DataUiState<${ENTITY_VIEW}>) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(dimensionResource(id = R.dimen.screen_padding)),
     ) {
     }
 }
 
-@SuppressLint("UnrememberedMutableState")
 @Preview
 @Composable
-private fun ${DESTINATION_NAME}ScreenPreview() {
-    ${DESTINATION_NAME}Screen(
-        title = mutableStateOf("Title"),
-        body = mutableStateOf("Body"),
-        onClick = {}
+private fun ${SCREEN}ScreenPreview() {
+    ${SCREEN}Screen(
+        uiState = Idle()
     )
 }

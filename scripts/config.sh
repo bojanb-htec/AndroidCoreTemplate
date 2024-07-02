@@ -63,8 +63,19 @@ case "$useCompose" in
         echo "Setting up Compose..."
         # remove presentation-databinding directory
         rm -rf ./presentation-databinding
+        
+        # remove databinding file template directory
+        rm -rf ./.idea/fileTemplates/databinding
+        
+        # move compose file templates to file templates root
+        mv ./.idea/fileTemplates/compose/* ./.idea/fileTemplates
+        rm -rf ./.idea/fileTemplates/compose
+
         # remove all lines containing comment // only-for-databinding
         LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-databinding\:/d' {} +
+
+        # Uncomment/replace // only-for-compose: with empty string
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-compose\: //g' {} +
         ;;
     [nN][oO]|[nN])
         echo "Setting up databinding..."
@@ -72,7 +83,18 @@ case "$useCompose" in
         # the content of presentation-databinding directory
         rm -rf data/src/
         mv ./presentation-databinding ./presentation
-        # Uncomment // only-for-databinding: with empty string
+
+        # remove compose file template directory
+        rm -rf ./.idea/fileTemplates/compose
+        
+        # move databinding file templates to file templates root
+        mv ./.idea/fileTemplates/databinding/* ./.idea/fileTemplates
+        rm -rf ./.idea/fileTemplates/databinding
+
+        # remove all lines containing comment // only-for-compose
+        LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e '/\/\/ only-for-compose\:/d' {} +
+
+        # Uncomment/replace // only-for-databinding: with empty string
         LC_ALL=C find "$PWD" -not -path '*/.git/*' -not -path '*/scripts/*' -type f -exec sed -i '' -e 's/\/\/ only-for-databinding\: //g' {} +
         ;;
     *)

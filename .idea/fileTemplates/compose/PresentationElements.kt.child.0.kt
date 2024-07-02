@@ -11,11 +11,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ${DESTINATION_NAME}ViewModel @Inject constructor() : BaseViewModel<Unit>() {
-    val postTitle: MutableState<String> = mutableStateOf("")
-    val postBody: MutableState<String> = mutableStateOf("")
+class ${SCREEN}ViewModel @Inject constructor() : BaseViewModel<${ENTITY_VIEW}>() {
     
-    fun onClick() {
-      TODO("Not yet implemented")
-    }
 }
