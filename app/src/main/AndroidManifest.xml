@@ -25,9 +25,9 @@
 			</intent-filter>
 		</activity>
 
-		<meta-data
-			android:name="com.google.android.gms.ads.APPLICATION_ID"
-			android:value="ca-app-pub-6075416668238649~6363006176" />
+// only-for-google-ads: 		<meta-data
+// only-for-google-ads: 			android:name="com.google.android.gms.ads.APPLICATION_ID"
+// only-for-google-ads: 			android:value="ca-app-pub-6075416668238649~6363006176" />
 // only-for-push-notifications: 
 // only-for-push-notifications: 		<service
 // only-for-push-notifications: 			android:name="___PACKAGE_NAME___.data.notification.PushNotificationService"

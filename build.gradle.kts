@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     // only-for-crashlytics: alias(libs.plugins.com.google.firebase.crashlytics) apply false
     // only-for-app-distribution: alias(libs.plugins.com.google.firebase.appdistribution) apply false
-    alias(libs.plugins.com.google.gms.google.services) apply false
+    // only-for-google-services: alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.androidx.navigation.safeargs) apply false
 
     alias(libs.plugins.android.application) apply false

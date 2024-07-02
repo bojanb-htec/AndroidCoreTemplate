@@ -68,8 +68,8 @@ dependencies {
 
 
 	implementation(libs.androidx.constraintlayout)
-
-	implementation(libs.play.services.ads)
+	// only-for-google-ads: 
+	// only-for-google-ads: implementation(libs.play.services.ads)
 
 	implementation(libs.androidx.work.runtime.ktx)
 

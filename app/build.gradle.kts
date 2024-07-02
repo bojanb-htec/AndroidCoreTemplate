@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.com.google.dagger.hilt.android)
     // only-for-crashlytics: alias(libs.plugins.com.google.firebase.crashlytics)
     // only-for-app-distribution: alias(libs.plugins.com.google.firebase.appdistribution)
-    alias(libs.plugins.com.google.gms.google.services)
+    // only-for-google-services: alias(libs.plugins.com.google.gms.google.services)
 
     /**
      * #DataBindingSample
@@ -98,7 +98,7 @@ dependencies {
      */
     ksp(libs.dagger.hilt.compiler)
 
-    implementation(libs.play.services.ads)
+    // only-for-google-ads: implementation(libs.play.services.ads)
 
     implementation(platform(libs.firebase.bom))
     // only-for-crashlytics: implementation(libs.firebase.crashlytics.ktx)

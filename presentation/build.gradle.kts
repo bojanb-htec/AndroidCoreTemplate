@@ -80,8 +80,8 @@ dependencies {
 	// Hilt
 	implementation(libs.dagger.hilt)
 	ksp(libs.dagger.hilt.compiler)
-
-	implementation(libs.play.services.ads)
+  // only-for-google-ads: 
+	// only-for-google-ads: implementation(libs.play.services.ads)
 
 	implementation(libs.androidx.work.runtime.ktx)
 

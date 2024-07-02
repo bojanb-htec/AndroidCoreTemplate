@@ -1,6 +1,6 @@
 package ___PACKAGE_NAME___.app
 
-import com.google.android.gms.ads.MobileAds
+// only-for-google-ads: import com.google.android.gms.ads.MobileAds
 import com.htecgroup.androidcore.presentation.CoreApplication
 // only-for-push-notifications: import ___PACKAGE_NAME___.domain.service.NotificationController
 // only-for-databinding: import ___PACKAGE_NAME___.presentation.viewmodel.ViewModelIdProvider
@@ -26,7 +26,7 @@ class ___APP_NAME_CAMEL___Application : CoreApplication() {
         // Stetho.initializeWithDefaults(this);
 
         // only-for-push-notifications: notificationController.createNotificationChannels()
-        MobileAds.initialize(this)
+        // only-for-google-ads: MobileAds.initialize(this)
     }
 
     override fun enableMultiDex() = true
